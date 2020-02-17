@@ -1,7 +1,7 @@
 SplitterGrid
 ============
 
-[![Github Build Status](https://github.com/kivy-garden/splittergrid/workflows/Garden%20flower/badge.svg)](https://github.com/kivy-garden/flower/actions)
+[![Github Build Status](https://github.com/kivy-garden/splittergrid/workflows/Garden%20flower/badge.svg)](https://github.com/kivy-garden/splittergrid/actions)
 
 A GridLayout-like widget, that allows the user to manually change the relative
 sizes of each collumn and row. If the widget is resized, the preferences will
