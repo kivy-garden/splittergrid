@@ -14,27 +14,35 @@ all the modes you could hope for are implemented:
 
 tb-lr, top to bottom, left to right, which means the first column 
 will be filled from top to bottom, then the second column, etc.
+
 ![tb-lr](captures/tb-lr.png)
 
 bt-lr: bottom to top, left to right
+
 ![bt-lr](captures/bt-lr.png)
 
 tb-rl: top to bottom, right to left
+
 ![tb-rl](captures/tb-rl.png)
 
 bt-rl, bottom to top, right to left
+
 ![bt-rl](captures/bt-rl.png)
 
 lr-tb: left to right, top to bottom
+
 ![lr-tb](captures/lr-tb.png)
 
 lr-bt: left to right, top to bottom
+
 ![lr-bt](captures/lr-bt.png)
 
 rl-tb: right to left, top to bottom
+
 ![rl-tb](captures/rl-tb.png)
 
 rl-bt: rigth to left, bottom to top
+
 ![rl-bt](captures/rl-bt.png)
 
 The margin between each cell can be dragged by the user, resizing the
@@ -50,7 +58,6 @@ properties of its children.
 
 The module can be ran standalone and will display a basic demonstration of the
 layout.
-
 
 Contributing
 ------------

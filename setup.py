@@ -7,8 +7,7 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
-filename = path.join(here, 'kivy_garden', 'flower', '_version.py')
-# change this                              ^^^^^^
+filename = path.join(here, 'kivy_garden', 'splittergrid', '_version.py')
 locals = {}
 with open(filename, "rb") as fh:
     exec(compile(fh.read(), filename, 'exec'), globals(), locals)
@@ -17,19 +16,19 @@ __version__ = locals['__version__']
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-URL = 'https://github.com/kivy-garden/flower'
+URL = 'https://github.com/kivy-garden/splittergrid'
 
 setup(
-    name='kivy_garden.flower',
+    name='kivy_garden.splittergrid',
     version=__version__,
-    description='A kivy garden flower demo.',
+    description='A kivy grid layout that allows user to resize columns ad rows.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url=URL,
     author='Kivy',
     author_email='kivy@kivy.org',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries',
         'License :: OSI Approved :: MIT License',
@@ -38,7 +37,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
-    keywords='Kivy kivy-garden',
+    keywords='Kivy kivy-garden layout',
 
     packages=find_namespace_packages(include=['kivy_garden.*']),
     install_requires=[],
