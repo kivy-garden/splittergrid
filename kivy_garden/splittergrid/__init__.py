@@ -27,20 +27,34 @@ class SplitterGrid(Layout):
     """
     cols = NumericProperty(0)
     ':attr:cols is a NumericProperty and allows setting the number of columns'
+
     rows = NumericProperty(0)
     ':attr:rows is a NumericProperty and allows setting the number of rows'
+
     margin = NumericProperty(10)
-    ':attr:margin is a NumericProperty and allows setting the space between each column/row.'
+    ''':attr:margin is a NumericProperty and allows setting the space
+    between each column/row.
+    '''
 
     col_ratios = ListProperty()
-    ':attr:col_ratios is a ListProperty containing the current list of relative sizes in the order of columns'
+    ''':attr:col_ratios is a ListProperty containing the current list of
+    relative sizes in the order of columns
+    '''
+
     row_ratios = ListProperty()
-    ':attr:row_ratios is a ListProperty containing the current list of relative sizes in the order of rows'
+    ''':attr:row_ratios is a ListProperty containing the current list of
+    relative sizes in the order of rows.
+    '''
 
     min_col_width = NumericProperty(40)
-    ':attr:min_col_width is a NumericProperty and sets the minimum width of any column'
+    ''':attr:min_col_width is a NumericProperty and sets the minimum
+    width of any column
+    '''
+
     min_row_height = NumericProperty(40)
-    ':attr:min_row_height is a NumericProperty and sets the minimum height of any row'
+    ''':attr:min_row_height is a NumericProperty and sets the minimum
+    height of any row.
+    '''
 
     orientation = OptionProperty(
         'lr-tb',
@@ -49,7 +63,9 @@ class SplitterGrid(Layout):
             'lr-tb', 'lr-bt', 'rl-tb', 'rl-bt'
         ]
     )
-    ':attr:orientation is an OptionProperty and sets the filling order of the grid.'
+    ''':attr:orientation is an OptionProperty and sets the filling order
+    of the grid.
+    '''
 
     override_cursor = BooleanProperty(True)
 
@@ -198,7 +214,10 @@ class SplitterGrid(Layout):
                 )
             )
 
-            if (dx < 0 and touch.x < col_pos) or (dx > 0 and touch.x > col_pos):
+            if (
+                (dx < 0 and touch.x < col_pos)
+                or (dx > 0 and touch.x > col_pos)
+            ):
 
                 width_1 = width * (col_ratios[col] / sum_col_ratios) + dx
                 width_2 = width * (col_ratios[col + 1] / sum_col_ratios) - dx
@@ -219,8 +238,18 @@ class SplitterGrid(Layout):
 
         if row is not None:
             dy = touch.dy
-            row_pos = self.y + self.margin * row + sum((height * r / sum_row_ratios) for r in row_ratios[:row + 1])
-            if (dy < 0 and touch.y < row_pos) or (dy > 0 and touch.y > row_pos):
+            row_pos = (
+                self.y + self.margin * row
+                + sum(
+                    (height * r / sum_row_ratios)
+                    for r in row_ratios[:row + 1]
+                )
+            )
+
+            if (
+                (dy < 0 and touch.y < row_pos)
+                or (dy > 0 and touch.y > row_pos)
+            ):
                 height_1 = height * (row_ratios[row] / sum_row_ratios) + dy
                 height_2 = height * (row_ratios[row + 1] / sum_row_ratios) - dy
 
@@ -269,7 +298,10 @@ class SplitterGrid(Layout):
         return self.height - sum_margins_rows
 
     def do_layout(self, *args):
-        if not (self.cols or self.rows) or not (self.row_ratios and self.col_ratios):
+        if (
+            not (self.cols or self.rows)
+            or not (self.row_ratios and self.col_ratios)
+        ):
             return
 
         i = 0
@@ -317,7 +349,7 @@ class SplitterGrid(Layout):
             for r2 in ratios_d2:
                 w = children[i]
                 i += 1
-                w.width = width * (r2 if d1 == 'x' else r1)  / sum_col_ratios
+                w.width = width * (r2 if d1 == 'x' else r1) / sum_col_ratios
                 w.height = height * (r1 if d1 == 'x' else r2) / sum_row_ratios
                 w.pos = (
                     pos['x'] - (w.width if 'rl' in orientation else 0),
@@ -357,7 +389,7 @@ BoxLayout:
                 'tb-lr', 'bt-lr', 'tb-rl', 'bt-rl',
                 'lr-tb', 'lr-bt', 'rl-tb', 'rl-bt'
                 ]
-        
+
     SplitterGrid:
         id: grid
         cols: 5
