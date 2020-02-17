@@ -21,7 +21,7 @@ URL = 'https://github.com/kivy-garden/splittergrid'
 setup(
     name='kivy_garden.splittergrid',
     version=__version__,
-    description='A kivy grid layout that allows user to resize columns ad rows.',
+    description='A kivy grid layout that allows user to resize cells.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url=URL,
